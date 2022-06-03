@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
 
 function App() {
+const [count, setCount] = useState(0)
+//crear logica por si las dudas.
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='Container my-5 '>
+      <div className='card text-center my-5'>
+        <h1>Contador Carrito</h1>
+          <div className='my-5'>
+            <h2 className='my-5'>{count}</h2>
+              <button className='btn btn-success mx-2' 
+                        onClick={() => setCount(count +1)}
+                        disabled={count ===10}>+</button>
+              
+              <button className='btn btn-danger mx-2' 
+                        onClick={() => setCount(count-1)}
+                        disabled={count ===0}>-</button>
+              
+              <button className='btn btn-secondary mx-2' onClick={() => setCount(0)}>Resetear</button>
+      </div>
     </div>
+  </div>
   );
 }
 
